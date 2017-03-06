@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+previous_sum=$(md5 ./index.rb)
+
+while true
+do
+    sleep 1
+
+    new_sum=$(md5 ./index.rb)
+
+    if [ "$new_sum" != "$previous_sum" ]
+    then
+        ./build
+        previous_sum="$new_sum"
+    fi
+done

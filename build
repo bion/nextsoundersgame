@@ -1,0 +1,8 @@
+#! /usr/bin/env ruby
+
+require_relative './index'
+
+page = Index.new.to_html
+
+File.write('./index.html', page)
+puts "wrote index.html"
