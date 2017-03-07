@@ -41,9 +41,7 @@ class Index < Fortitude::Widget
           p(class: 'suggestion') do
             text 'In the meantime '
             span(class: 'suggestion-links') do
-              a('get smart', href: 'https://www.amazon.com/Inverting-Pyramid-History-Soccer-Tactics/dp/1568587384')
-              text ' or '
-              a('get hyped', href: 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=seattle+sounders')
+              a('get smart', href: 'https://www.amazon.com/gp/product/1568587384/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=nextsoundersg-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1568587384&linkId=0951079676f50395f0dbe4984f3222e6')
               text '.'
             end
           end
