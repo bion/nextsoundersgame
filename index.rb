@@ -17,8 +17,6 @@ class Index < Fortitude::Widget
 
   def page_body
     body do
-      # h1('sounders', class: 'sounders')
-
       div(class: 'content') do
         h1(class: 'intro') do
           text 'Next '
@@ -41,7 +39,7 @@ class Index < Fortitude::Widget
           p(class: 'suggestion') do
             text 'In the meantime '
             span(class: 'suggestion-links') do
-              a('get smart', href: 'https://www.amazon.com/gp/product/1568587384/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=nextsoundersg-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1568587384&linkId=0951079676f50395f0dbe4984f3222e6')
+              a('try a book', href: 'https://www.amazon.com/gp/product/1568587384/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=nextsoundersg-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1568587384&linkId=0951079676f50395f0dbe4984f3222e6')
               text '.'
             end
           end
@@ -65,10 +63,14 @@ class Index < Fortitude::Widget
   end
 
   def css_tag(src)
-    link(rel: 'stylesheet', href: src)
+    style do
+      rawtext File.read("./#{src}")
+    end
   end
 
   def js_tag(src)
-    script(type: 'text/javascript', src: src)
+    script(type: 'text/javascript') do
+      rawtext File.read("./#{src}")
+    end
   end
 end

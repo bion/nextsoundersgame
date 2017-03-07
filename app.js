@@ -241,7 +241,9 @@ NSG.GAME_DATA = [
   }
 ];
 
-window.onload = function() {
+window.onload = onPageLoad;
+
+function onPageLoad() {
   renderGame();
   setInterval(renderGame, 1000);
 }
