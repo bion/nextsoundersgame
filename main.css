@@ -1,0 +1,104 @@
+body {
+  background-color: white;
+  color: #005795;
+}
+
+.sounders {
+  letter-spacing: 3px;
+  color: #7dc450;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+h1 {
+  ;
+}
+
+h1.sounders {
+  display: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i');
+
+body {
+  font-size: 1rem;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0;
+}
+
+div.content {
+  background-color: white;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.text-content {
+  padding: 0 2rem;
+}
+
+.text-content p {
+  line-height: 1.3;
+}
+
+@media all and (min-width: 361px) {
+  body {
+    background-color: #7dc450;
+  }
+
+  div.content {
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(140, 140, 140, 0.5);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(140, 140, 140, 0.5);
+    box-shadow: 0px 0px 10px 0px rgba(140, 140, 140, 0.5);
+    padding-bottom: 2rem;
+    margin: 2rem auto;
+  }
+
+  @keyframes y {
+    100% {
+      transform: translateX( calc(100vw - #{$size}) );
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h1.sounders {
+    display: block;
+    animation: y 7s linear infinite alternate;
+  }
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: inherit;
+}
+
+h2 {
+  font-weight: inherit;
+}
+
+p {
+  margin: 0 0 2rem 0;
+}
+
+a {
+  text-decoration: underline;
+  color: #005795;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #005795;
+}
+
+span.suggestion-links {
+  display: inline-block;
+}

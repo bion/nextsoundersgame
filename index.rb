@@ -17,7 +17,38 @@ class Index < Fortitude::Widget
 
   def page_body
     body do
-      h1(class: 'countdown')
+      # h1('sounders', class: 'sounders')
+
+      div(class: 'content') do
+        h1 do
+          text 'Next '
+          span('Sounders', class: 'sounders')
+          text ' Game'
+        end
+
+        h3(class: 'countdown')
+
+        div(class: 'text-content') do
+          p(class: 'game-content')
+        end
+
+        div(class: 'text-content') do
+          h3(class: 'home-game-header')
+          p(class: 'home-game-content')
+        end
+
+        div(class: 'text-content') do
+          p(class: 'suggestion') do
+            text 'In the meantime '
+            span(class: 'suggestion-links') do
+              a('get smart', href: 'https://www.amazon.com/Inverting-Pyramid-History-Soccer-Tactics/dp/1568587384')
+              text ' or '
+              a('get hyped', href: 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=seattle+sounders')
+              text '.'
+            end
+          end
+        end
+      end
     end
   end
 
@@ -30,8 +61,13 @@ class Index < Fortitude::Widget
 
       title('Sounders FC Game countdown!')
 
+      css_tag('main.css')
       js_tag('app.js')
     end
+  end
+
+  def css_tag(src)
+    link(rel: 'stylesheet', href: src)
   end
 
   def js_tag(src)
