@@ -241,9 +241,7 @@ NSG.GAME_DATA = [
   }
 ];
 
-window.onload = onPageLoad;
-
-function onPageLoad() {
+window.onload = function() {
   renderGame();
   setInterval(renderGame, 1000);
 }
@@ -304,13 +302,17 @@ function renderGame() {
   var nowMillis = new Date().getTime();
   var nextGame = getGame(futureGamePred());
   var timeDiffMillis = nextGame.time_in_milliseconds - nowMillis;
-  var homeAway = nextGame.location === "SEATTLE, WA" ? 'Home' : 'Away';
+  var isAwayGame = nextGame.location !== "SEATTLE, WA";
 
   countdown.innerHTML = formatTimeDifference(timeDiffMillis);
 
-  document.getElementsByClassName('game-content')[0].innerHTML = nextGame.date + '<br>' + [homeAway, 'vs', nextGame.matchup].join(' ');
+  document.getElementsByClassName('game-content')[0].innerHTML = [
+    nextGame.date,
+    '<br>',
+    isAwayGame ? 'at' : 'at home vs', nextGame.matchup
+  ].join(' ');
 
-  if (homeAway === 'Away') {
+  if (isAwayGame) {
     displayNextHomeGame(nowMillis);
   }
 }
