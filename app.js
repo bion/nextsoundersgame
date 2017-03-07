@@ -255,9 +255,9 @@ NSG.MILLIS_PER_SECOND = 1000;
 
 function formatTimeDifference(timeDiffMillis) {
   var days = Math.floor(timeDiffMillis / NSG.MILLIS_PER_DAY);
-  var hours = Math.floor((timeDiffMillis - (days * NSG.MILLIS_PER_DAY)) / NSG.MILLIS_PER_HOUR);
-  var minutes = Math.floor((timeDiffMillis - ((hours * NSG.MILLIS_PER_HOUR) + (days * NSG.MILLIS_PER_DAY))) / NSG.MILLIS_PER_MINUTE);
-  var seconds = Math.floor((timeDiffMillis - ((hours * NSG.MILLIS_PER_HOUR) + (days * NSG.MILLIS_PER_DAY) + (minutes * NSG.MILLIS_PER_MINUTE))) / NSG.MILLIS_PER_SECOND);
+  var hours = Math.floor(timeDiffMillis % NSG.MILLIS_PER_DAY / NSG.MILLIS_PER_HOUR);
+  var minutes = Math.floor(timeDiffMillis % NSG.MILLIS_PER_HOUR % NSG.MILLIS_PER_DAY / NSG.MILLIS_PER_MINUTE);
+  var seconds = Math.floor(timeDiffMillis % NSG.MILLIS_PER_HOUR % NSG.MILLIS_PER_DAY % NSG.MILLIS_PER_MINUTE / NSG.MILLIS_PER_SECOND);
 
   return [
     days + ' days',
