@@ -253,18 +253,38 @@ NSG.MILLIS_PER_HOUR   = 3600000;
 NSG.MILLIS_PER_MINUTE = 60000;
 NSG.MILLIS_PER_SECOND = 1000;
 
-function formatTimeDifference(timeDiffMillis) {
+function calcTimeDifferences(timeDiffMillis) {
   var days = Math.floor(timeDiffMillis / NSG.MILLIS_PER_DAY);
   var hours = Math.floor(timeDiffMillis % NSG.MILLIS_PER_DAY / NSG.MILLIS_PER_HOUR);
   var minutes = Math.floor(timeDiffMillis % NSG.MILLIS_PER_HOUR % NSG.MILLIS_PER_DAY / NSG.MILLIS_PER_MINUTE);
   var seconds = Math.floor(timeDiffMillis % NSG.MILLIS_PER_HOUR % NSG.MILLIS_PER_DAY % NSG.MILLIS_PER_MINUTE / NSG.MILLIS_PER_SECOND);
 
-  return [
-    days + ' days',
-    hours + ' hours',
-    minutes + ' minutes',
-    seconds + ' seconds'
-  ].join('<br>');
+  return {
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  };
+}
+
+function formatTimeDifference(timeDifferences) {
+  return '<div class="countdown">' + [
+      '<ul class="time-diff-numbers">',
+      '<li>', timeDifferences.days, '</li>',
+      '<li>', timeDifferences.hours, '</li>',
+      '<li>', timeDifferences.minutes, '</li>',
+      '<li>', timeDifferences.seconds, '</li>',
+      '</ul>'
+    ].join('') +
+    [
+      '<ul class="time-diff-labels">',
+      '<li>days</li>',
+      '<li>hours</li>',
+      '<li>minutes</li>',
+      '<li>seconds</li>',
+      '</ul>'
+    ].join('') +
+    '</div>';
 }
 
 function getGame(pred) {
@@ -306,7 +326,7 @@ function renderGame() {
   var timeDiffMillis = nextGame.time_in_milliseconds - nowMillis;
   var isAwayGame = nextGame.location !== "SEATTLE, WA";
 
-  countdown.innerHTML = formatTimeDifference(timeDiffMillis);
+  countdown.innerHTML = formatTimeDifference(calcTimeDifferences(timeDiffMillis));
 
   document.getElementsByClassName('game-content')[0].innerHTML = [
     nextGame.date,
