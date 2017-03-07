@@ -53,7 +53,8 @@ class Index < Fortitude::Widget
       meta(content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type")
       meta(charset: "utf-8")
       meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
-      meta(content: 'How long until the next Seattle Sounders FC game?', name: "description")
+      meta(content: 'The next Sounders FC game.', name: "description")
+      meta(property: 'og:image', content: 'https://i.imgur.com/wbDbx0W.png')
 
       title('Next Sounders FC Game')
 

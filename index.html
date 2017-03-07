@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="How long until the next Seattle Sounders FC game?" name="description"><title>Next Sounders FC Game</title><style>body {
+<!DOCTYPE html><html lang="en"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="The next Sounders FC game." name="description"><meta property="og:image" content="https://i.imgur.com/wbDbx0W.png"><title>Next Sounders FC Game</title><style>body {
   background-color: white;
   color: #005795;
 }
@@ -353,10 +353,12 @@ NSG.GAME_DATA = [
   }
 ];
 
-window.onload = function() {
+window.onload = onPageLoad;
+
+function onPageLoad() {
   renderGame();
   setInterval(renderGame, 1000);
-};
+}
 
 NSG.MILLIS_PER_DAY    = 86400000;
 NSG.MILLIS_PER_HOUR   = 3600000;
