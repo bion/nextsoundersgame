@@ -318,6 +318,6 @@ function renderGame() {
 function displayNextHomeGame(now) {
   var nextHomeGame = getGame(futureHomeGamePred());
 
-  document.getElementsByClassName('home-game-header')[0].textContent = 'Next home game';
+  document.getElementsByClassName('home-game-header')[0].innerHTML = 'Next <span class="sounders">Home</span> Game';
   document.getElementsByClassName('home-game-content')[0].innerHTML = nextHomeGame.date + '<br>' + 'vs ' + nextHomeGame.matchup;
 }

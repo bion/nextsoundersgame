@@ -5,16 +5,12 @@ body {
 
 .sounders {
   letter-spacing: 3px;
-  color: #7dc450;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+  color: #628b18;
+  font-weight: bold;
 }
 
-h1 {
-  ;
+h1.intro {
+  padding-top: 30px;
 }
 
 h1.sounders {
@@ -48,7 +44,7 @@ div.content {
 
 @media all and (min-width: 361px) {
   body {
-    background-color: #7dc450;
+    background-color: #005795;
   }
 
   div.content {

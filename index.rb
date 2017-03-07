@@ -20,7 +20,7 @@ class Index < Fortitude::Widget
       # h1('sounders', class: 'sounders')
 
       div(class: 'content') do
-        h1 do
+        h1(class: 'intro') do
           text 'Next '
           span('Sounders', class: 'sounders')
           text ' Game'
@@ -33,7 +33,7 @@ class Index < Fortitude::Widget
         end
 
         div(class: 'text-content') do
-          h3(class: 'home-game-header')
+          h1(class: 'home-game-header')
           p(class: 'home-game-content')
         end
 
@@ -59,7 +59,7 @@ class Index < Fortitude::Widget
       meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
       meta(content: 'How long until the next Seattle Sounders FC game?', name: "description")
 
-      title('Sounders FC Game countdown!')
+      title('Next Sounders FC Game')
 
       css_tag('main.css')
       js_tag('app.js')
