@@ -8,7 +8,6 @@ class Index < Fortitude::Widget
 
     html(lang: 'en') do
       page_head
-
       page_body
     end
   end

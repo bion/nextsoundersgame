@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
 
-previous_sum=$(md5 ./index.rb)
+calc_sum() {
+    sum="$(md5 ./index.rb)$(md5 ./app.js)$(md5 ./main.css)"
+}
+
+calc_sum
+
+previous_sum=$sum
 
 while true
 do
     sleep 1
 
-    new_sum=$(md5 ./index.rb)
+    calc_sum
 
-    if [ "$new_sum" != "$previous_sum" ]
+    if [ "$sum" != "$previous_sum" ]
     then
         ./build
-        previous_sum="$new_sum"
+        previous_sum="$sum"
     fi
 done
