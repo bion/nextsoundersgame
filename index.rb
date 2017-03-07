@@ -29,8 +29,9 @@ class Index < Fortitude::Widget
           p(class: 'game-content')
         end
 
-        div(class: 'text-content') do
+        div(class: 'text-content', id: 'home-game-container') do
           h1(class: 'home-game-header')
+          h3(class: 'home-countdown')
           p(class: 'home-game-content')
         end
 

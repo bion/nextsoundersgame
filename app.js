@@ -336,13 +336,29 @@ function renderGame() {
 
   if (isAwayGame) {
     displayNextHomeGame(nowMillis);
+  } else {
+    hideHomeGame();
   }
+}
+
+function hideHomeGame() {
+  document.getElementById('home-game-container').style.display = 'none';
+}
+
+function showHomeGame() {
+  document.getElementById('home-game-container').style.display = 'block';
 }
 
 function displayNextHomeGame(now) {
   var nextHomeGame = getGame(futureHomeGamePred());
+  var timeDiffMillis = nextHomeGame.time_in_milliseconds - now;
+
+  showHomeGame();
 
   document.getElementsByClassName('home-game-header')[0].innerHTML = 'Next <span class="sounders">Home</span> Game';
+
+  document.getElementsByClassName('home-countdown')[0].innerHTML = formatTimeDifference(calcTimeDifferences(timeDiffMillis));
+
   document.getElementsByClassName('home-game-content')[0].innerHTML = nextHomeGame.date + '<br>' + 'vs ' + nextHomeGame.matchup;
 }
 
