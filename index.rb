@@ -40,6 +40,8 @@ class Index < Fortitude::Widget
             text 'In the meantime '
             span(class: 'suggestion-links') do
               a('try a book', href: 'https://www.amazon.com/gp/product/1568587384/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=nextsoundersg-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1568587384&linkId=0951079676f50395f0dbe4984f3222e6')
+              text ' or '
+              a('two', href: 'https://www.amazon.com/gp/product/1568584946/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1568584946&linkCode=as2&tag=nextsoundersg-20&linkId=fee04afa5e8fbcbf71f25855e96831f5')
               text '.'
             end
           end
