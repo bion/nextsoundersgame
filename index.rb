@@ -1,5 +1,11 @@
 require 'fortitude'
 
+class String
+  def uglify!
+    self.gsub!("\n", ' ').gsub!(/\s+/, ' ')
+  end
+end
+
 class Index < Fortitude::Widget
   doctype :html5
 
@@ -55,13 +61,13 @@ class Index < Fortitude::Widget
 
   def css_tag(src)
     style do
-      rawtext File.read("./#{src}")
+      rawtext File.read("./#{src}").uglify!
     end
   end
 
   def js_tag(src)
     script(type: 'text/javascript') do
-      rawtext File.read("./#{src}")
+      rawtext File.read("./#{src}").uglify!
     end
   end
 end
