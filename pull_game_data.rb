@@ -4,7 +4,7 @@ require 'json'
 MILLIS_PER_HOUR = 1000 * 60 * 60
 
 agent = Mechanize.new
-agent.get('https://www.soundersfc.com/schedule?month=all&year=2017&club_options=11&op=Update&form_build_id=form-HCfmOwE70ILxjHT-icY6jGgppRmN0O1geJ8OkbA24Vc&form_id=mp7_schedule_hub_search_filters_form')
+agent.get('https://www.soundersfc.com/schedule')
 
 match_divs = agent.page.search('div.match_meta')
 
