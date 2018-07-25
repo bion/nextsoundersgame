@@ -146,10 +146,10 @@ NSG.GAME_DATA = [
     "time_in_milliseconds": 1533427200000
   },
   {
-    "date": "Sunday, August 12, 2018 5:00PM PST",
+    "date": "Sunday, August 12, 2018 7:00PM PST",
     "matchup": "FC DALLAS",
     "location": "CENTURYLINK FIELD",
-    "time_in_milliseconds": 1534118400000
+    "time_in_milliseconds": 1534125600000
   },
   {
     "date": "Saturday, August 18, 2018 12:30PM PST",
