@@ -15,11 +15,13 @@ end
 matches = match_divs.map do |match|
   date = val(match, '.match_date')
   date_string = date.chomp.gsub('PT', 'PST').gsub('2017 ', '')
+
   {
     date: date_string,
     matchup: val(match, '.match_matchup').gsub('at ', ''),
     location: val(match, '.match_location_short'),
-    time_in_milliseconds: DateTime.parse(date).strftime('%Q').to_i + (7 * MILLIS_PER_HOUR)
+    time_in_milliseconds: DateTime.parse(date).strftime('%Q').to_i + (7 * MILLIS_PER_HOUR),
+    broadcast_info: match.search('.match_info').children.last.text.strip
   }
 end
 
