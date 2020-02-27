@@ -1,3 +1,4 @@
+require 'pry'
 require 'mechanize'
 require 'json'
 
@@ -13,6 +14,7 @@ def val(match, sel)
 end
 
 matches = match_divs.map do |match|
+  begin
   date = val(match, '.match_date')
   date_string = date.chomp.gsub('PT', 'PST').gsub('2017 ', '')
 
@@ -21,8 +23,11 @@ matches = match_divs.map do |match|
     matchup: val(match, '.match_matchup').gsub('at ', ''),
     location: val(match, '.match_location_short'),
     time_in_milliseconds: DateTime.parse(date).strftime('%Q').to_i + (7 * MILLIS_PER_HOUR),
-    broadcast_info: match.search('.match_info').children.last.text.strip
+    broadcast_info: match.search('.match_info')&.children&.last&.text&.strip
   }
+  rescue
+    binding.pry
+  end
 end
 
 File.write 'match_data.json', JSON.generate(matches)
